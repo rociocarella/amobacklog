@@ -5,7 +5,7 @@
     <head>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulario Documentación | Inside Security</title>
+        <title>Formulario Documentacion | Inside Security</title>
         
         <!-- BOOTSTRAP-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -14,7 +14,7 @@
 
     </head>
     <body>
-    <center><h1>Formulario Documentación</h1></center>
+    <center><h1>Formulario Documentacion</h1></center>
         
         
         <form action="SAgregarDocumento" method="POST" style="background-color: lavender">
