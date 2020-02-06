@@ -16,7 +16,7 @@
         <!--header-->
                 <img src="actualizarusuarios.jpg">         
 
-        <title>Formulario Vulnerabilidades</title>
+        <title>Formulario Vulnerabilidades | Inside Security</title>
     </head>
     <body>
         

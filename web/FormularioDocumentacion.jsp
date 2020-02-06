@@ -1,18 +1,21 @@
-<%-- 
-    Document   : FormularioDocumentacion
-    Created on : 5 feb. 2020, 11:34:08
-    Author     : japa
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Formulario Documentación | Inside Security</title>
+        
+        <!-- BOOTSTRAP-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!--header-->
+                <img src="actualizarusuarios.jpg">         
+
     </head>
     <body>
-        <h1>Hello World!</h1>
+    <center><h1>Formulario Documentación</h1></center>
+        
         
         <form action="SAgregarDocumento" method="POST" style="background-color: lavender">
             <input type="text" name="id_documento" value="" />id_documento<br/>
@@ -43,7 +46,7 @@
             -->
             <br>
             <center>
-            <input type="submit" value="Agregar Vulnerabilidad" name="FormularioVulnerabilidades" class="btn btn-primary"  role="button"/>
+                <a href="FormularioVulnerabilidades.jsp"><input type="submit" value="Agregar Vulnerabilidad" name="FormularioVulnerabilidades" class="btn btn-primary"  role="button"/></a>
             </center>
         </form>
         

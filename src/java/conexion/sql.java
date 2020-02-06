@@ -96,42 +96,4 @@ public class sql {
         
     }    
     
-    public int id_incrementableD(){
-        int id = 1; //lo igualamos a 1
-        
-        //vamos a hacer una consulta en la bdd pa obtener el último ID
-        PreparedStatement ps = null;
-        ResultSet rs = null;//para recorrer
-        //tambien tenemos que importar toda la clase que vamos a necesitar
-        //obtener conexion
-        Conexion db = new  Conexion();
-        
-        try {
-            ps = db.getCon().prepareStatement("SELECT MAX(id_documento) FROM documento "); //consulta pa buscar el id maximo
-            //esta consulta nos da el id máximo, le sumamos 1 para que el id sea incrementable
-            rs = ps.executeQuery();
-            while(rs.next())
-            {
-                id = rs.getInt(1) + 1; //sumar +1
-            }
-        }
-        catch (Exception ex)
-        {
-            System.out.println("Error"+ex.getMessage());
-        }
-        finally
-        {
-            try {
-                ps.close();
-                rs.close();
-                db.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                
-            }
-        }
-        return id;
-        
-    }    
 }
