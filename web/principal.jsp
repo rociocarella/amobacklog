@@ -1,5 +1,4 @@
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -32,9 +31,13 @@
             </li>
 
         </div>
+            
+      
 
 </nav>
    
+                  <!--header-->
+                <img src="menudeusuarios.jpg">     
     </head>
     <body>
         <br>
@@ -98,8 +101,7 @@
         <br>
         <br>
         <br>
-        <br>
-        
+
         
             <!-- footer -->
             <img src="futter.jpg">
@@ -111,5 +113,3 @@
         
     </body>
 </html>
-
-

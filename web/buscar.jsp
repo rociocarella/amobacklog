@@ -19,8 +19,11 @@
             ID_Usuario <input type="text" name="ID_USARIO" value="" /><br/>
             
             <br>
+            
+            <!--
             borrado x feo
             <input type="submit" value="Buscar" name="Buscar" />
+            -->
             
             <center>
             <input type="submit" value="Buscar" name="Buscar" class="btn btn-primary"  role="button"/>
@@ -29,10 +32,13 @@
         
         <br>
         <br>
+                <center><a href="menu.jsp"><button type="button" class="btn btn-secondary">Volver..</button></a></center>
+
         <br>
         <br>
         <br>
-        
+                        <br>
+      
                 <!-- footer -->
             <img src="futter.jpg">      
     </body>

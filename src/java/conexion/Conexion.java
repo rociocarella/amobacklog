@@ -7,7 +7,9 @@ package conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +23,8 @@ public class Conexion {
     public String db="backlog"; /*Aqui debes escribir el nombre de la bd*/
     public String usuario="root"; /*Aqui debes escribir el usuario de la bd*/
     public String clave=""; /*Aqui debes escribir el clave de la bd*/
+    public static Statement st=null;
+    public static ResultSet rt=null;
 
     public Conexion() {
             try {

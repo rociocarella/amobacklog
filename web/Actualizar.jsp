@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,8 +33,10 @@
             <input type="submit" value="Actualizar" name="Actualizar" class="btn btn-primary"  role="button"/>
             </center>
         </form>
-        
-        
+    <br>
+            <center><a href="menu.jsp"><button type="button" class="btn btn-secondary">Volver..</button></a></center>
+
+            <br>
               <!-- footer -->
             <img src="futter.jpg">
 <%-- Bootstrap --%>            

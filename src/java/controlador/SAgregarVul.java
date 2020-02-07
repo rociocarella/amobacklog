@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import conexion.Conexion;
 import conexion.sql;
 import dao.IntermediarioDao;
 import dao.VulnerabilidadDao;
@@ -57,21 +58,30 @@ public class SAgregarVul extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
            //----------------------------------------------------------------------------------- 
-            String cad=request.getParameter("q");
+           Conexion cn = new Conexion();
+           String cad=request.getParameter("q");
+           try{
+            cn.getCon();
+            String sql="select * from aplicacion where nombre_aplicacion like '"+cad+"%';";
+            cn.st=cn.getCon().createStatement();
+            cn.rt=cn.st.executeQuery(sql);
+            int i=1;
+            while (cn.rt.next()){
+                if ((i%2)!=0){
+                out.println("<tr bgcolor='#00FF00'><td>"+cn.rt.getString(2)+"</td><td>"+cn.rt.getString(3)+"</td>");
+                }else{
+                out.println("<tr><td>"+cn.rt.getString(2)+"</td><td>"+cn.rt.getString(3)+"</td>");
+                }
+                out.println("<td>"+cn.rt.getString(4)+"</td></tr>");
+                i++;
+            }
+            }catch(Exception e){
+            out.print(e.toString());
+            }
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             
             //-----------------------------------------------------------------------------
             

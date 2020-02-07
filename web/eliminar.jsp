@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,6 +21,10 @@
             <br>
             <center><input type="submit" value="Eliminar" name="Eliminar" /></center>
         </form>
+    
+            <br>
+            <center><a href="menu.jsp"><button type="button" class="btn btn-secondary">Volver..</button></a></center>
+        <br>
         
     <br>
     <br>
