@@ -43,7 +43,7 @@ public class SAgregarDoc extends HttpServlet {
 
         documentoDao = new DocumentoDao();
     }
-         private static java.sql.Date convert(java.util.Date uDate) {
+    private static java.sql.Date convert(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }
@@ -52,7 +52,7 @@ public class SAgregarDoc extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            String id_documento = request.getParameter("id_documento");
+            //String id_documento = request.getParameter("id_documento");
             String nombre_documento = request.getParameter("nombre_documento");
             String path_documento = request.getParameter("path_documento");
             String version_documento = request.getParameter("version_documento");
@@ -80,7 +80,10 @@ public class SAgregarDoc extends HttpServlet {
                 request.getSession().setAttribute("mensaje", error);
                 response.sendRedirect("error.jsp");
             } else {
-                int Id_doc = 0;
+                //consulta sql pa id incrementable:
+                sql s = new sql();
+                //implementando clase ql
+                int Id = s.id_incrementableD();
                 int ver_doc = 0;
                 int nro_sp = 0;
                 int id_per = 0;
@@ -90,7 +93,7 @@ public class SAgregarDoc extends HttpServlet {
                 int id_revi = 0;
                 
                 try {
-                    Id_doc = Integer.parseInt(id_documento);
+                    //Id_doc = Integer.parseInt(id_documento);
                     ver_doc = Integer.parseInt(version_documento);
                     nro_sp = Integer.parseInt(nro_sprint);
                     id_per = Integer.parseInt(id_persona);
@@ -100,20 +103,19 @@ public class SAgregarDoc extends HttpServlet {
                     id_revi = Integer.parseInt(id_revision);        
                     
                     
-                    java.util.Date utilDate = new java.util.Date(fecha_entrega);
-                    System.out.println("java.util.Date is : " + utilDate);
-                    java.sql.Date sqlDate = convert(utilDate);
-                    System.out.println("java.sql.Date is : " + sqlDate);
+                    java.util.Date utilDate = new java.util.Date(fecha_entrega);                    
+                    java.sql.Date sqlDate = convert(utilDate);                    
                     DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
-                    System.out.println("dateFormated date is : " + df.format(utilDate));
+                    
                     
                     boolean b = Boolean.parseBoolean(estado_documento);
                     
                    
                     
-                    Documento doc = new Documento(Id_doc, nombre_documento, path_documento, ver_doc, hash_md5, hash_sha1, hash_sha256, documento_relacionado, sqlDate, nro_sp, nombre_sprint,b, alcance, conclusion, id_per, id_idea, id_celu, id_usu, id_ori, id_revi);
+                    Documento doc = new Documento(Id, nombre_documento, path_documento, ver_doc, hash_md5, hash_sha1, hash_sha256, documento_relacionado, sqlDate, nro_sp, nombre_sprint,b, alcance, conclusion, id_per, id_idea, id_celu, id_usu, id_ori, id_revi);
                     documentoDao.create(doc);
-                    response.sendRedirect("principal.jsp");
+                    request.getSession().setAttribute("IDDOC",Id);
+                    response.sendRedirect("FormularioVulnerabilidades.jsp");
                 } catch (NumberFormatException e) {
                     error = "este campo es de tipo numerico" + e.getMessage();
                     request.getSession().setAttribute("mensaje", error);

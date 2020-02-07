@@ -6,6 +6,7 @@
 package controlador;
 
 import conexion.sql;
+import dao.IntermediarioDao;
 import dao.VulnerabilidadDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,11 +37,13 @@ public class SAgregarVul extends HttpServlet {
      */
     
     VulnerabilidadDao vulnerabilidadDao; 
+    IntermediarioDao intermediarioDao;
     
     public void init() {
     String pass =getServletContext().getInitParameter("jdbcPassword");
 
         vulnerabilidadDao = new VulnerabilidadDao();
+        intermediarioDao = new IntermediarioDao();
     }
      private static java.sql.Date convert(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
@@ -53,7 +56,27 @@ public class SAgregarVul extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+           //----------------------------------------------------------------------------------- 
+            String cad=request.getParameter("q");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //-----------------------------------------------------------------------------
+            
             //String id_vulnerabilidad = request.getParameter("id_vulnerabilidad");
+            int IDDOC = (int) request.getSession().getAttribute("IDDOC");
             String nombre_vulnerabilidad = request.getParameter("nombre_vulnerabilidad");
             String url_servicio = request.getParameter("url_servicio");
             String descripcion_vulnerabilidad = request.getParameter("descripcion_vulnerabilidad");
@@ -131,10 +154,12 @@ public class SAgregarVul extends HttpServlet {
                     
                     
                     
-                    
                     Vulnerabilidad vul = new Vulnerabilidad(Id, nombre_vulnerabilidad, url_servicio, descripcion_vulnerabilidad,impacto_vulnerabilidad ,recomendaciones_vulnerabilidad, id_estado,sqlDate , cvss, sqlDate2, pasos, path_poc, num_incidente,usuario1,categoria1,owasp1,criticidad1,tratamiento_riesgo1,cwe1,aplicacion1,ambiente1,empresa1);                   
+                    Intermediario in = new Intermediario(IDDOC, Id);
                     vulnerabilidadDao.create(vul);
-                    response.sendRedirect("principal.jsp");
+                    intermediarioDao.create(in);
+                    request.getSession().setAttribute("IDDOC",IDDOC);
+                    response.sendRedirect("FormularioVulnerabilidades.jsp");
                 } catch (NumberFormatException e) {
                     error = "este campo es de tipo numerico" + e.getMessage();
                     request.getSession().setAttribute("mensaje", error);
